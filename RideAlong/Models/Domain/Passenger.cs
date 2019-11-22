@@ -5,7 +5,13 @@ using System.Threading.Tasks;
 
 namespace RideAlong.Models.Domain
 {
-    public class Passenger
+    public class Passenger : Person
     {
+        private bool _subscription;
+
+        public Passenger(string voornaam, string naam, string telefoonnummer, bool subscription): base(voornaam, naam, telefoonnummer) 
+        {
+            _subscription = subscription;             
+        }
     }
 }
