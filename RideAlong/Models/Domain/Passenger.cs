@@ -7,11 +7,11 @@ namespace RideAlong.Models.Domain
 {
     public class Passenger : Person
     {
-        private bool _subscription;
+        public bool Subscription { get; private set; }
 
         public Passenger(string voornaam, string naam, string telefoonnummer, bool subscription): base(voornaam, naam, telefoonnummer) 
         {
-            _subscription = subscription;             
+            Subscription = subscription;             
         }
     }
 }
