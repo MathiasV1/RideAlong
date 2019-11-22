@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace RideAlong.Models.Domain
-{
-    public class Driver
-    {
+﻿namespace RideAlong.Models.Domain {
+    public class Driver : Person {
+        private int _aantalRitten;
+        private float _rating;
+        private float _maxDetour;
     }
 }
