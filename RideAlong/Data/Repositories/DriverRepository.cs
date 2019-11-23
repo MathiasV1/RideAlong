@@ -1,5 +1,5 @@
 ﻿using RideAlong.Models.Domain;
-using RideAlong.Models.Persistentie;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +11,7 @@ namespace RideAlong.Data.Repositories
     {
         //private readonly ApplicationDbContext _dbContext;
         //private readonly DBSet<Person> _drivers;
-        PersonMapper _pm;
+        
 
         public DriverRepository()
         {
