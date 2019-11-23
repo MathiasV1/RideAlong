@@ -78,7 +78,7 @@ namespace RideAlong.Models.Domain
             }
         }
 
-        public Person(string voornaam, string naam, string telefoonNummer, Location startLocation, Location endLocation)
+        public Person(string voornaam, string naam, string telefoonNummer)
         {
             Voornaam = voornaam;
             Naam = naam;
