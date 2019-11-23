@@ -9,23 +9,24 @@ namespace RideAlong.Data.Repositories
 {
     public class DriverRepository: IDriverRepository
     {
-        IList<Person> _drivers;
+        //private readonly ApplicationDbContext _dbContext;
+        //private readonly DBSet<Person> _drivers;
         PersonMapper _pm;
 
         public DriverRepository()
         {
-            _pm = new PersonMapper();
-            _drivers = _pm.GetPersons();
+            //_dbContext = dbContext;
+            //_brewers = dbContext.Brewers;
         }
 
         public void Add(Driver driver)
         {
-            throw new NotImplementedException();
+            //_drivers.add(driver);
         }
 
         public void Delete(Driver driver)
         {
-            throw new NotImplementedException();
+            //_drivers.remove(driver);
         }
 
         public IEnumerable<Driver> GetAll()
