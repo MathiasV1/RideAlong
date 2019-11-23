@@ -66,7 +66,6 @@ namespace RideAlong.Models.Domain
                 }
             }
         }
-
         public Location EndLocation
         {
             get { return _endlocation; }
