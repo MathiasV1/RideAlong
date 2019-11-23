@@ -1,5 +1,6 @@
-﻿using RideAlong.Models.Domain;
-using RideAlong.Models.Persistentie;
+﻿using Microsoft.EntityFrameworkCore;
+using RideAlong.Models.Domain;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,13 +10,17 @@ namespace RideAlong.Data.Repositories
 {
     public class PassengerRepository: IPassengerRepository
     {
-        IList<Person> _passengers;
-        PersonMapper _pm;
 
-        public PassengerRepository()
+        private readonly DbSet<Driver> _drivers;
+        private readonly DbSet<Passenger> _passengers;
+        private readonly ApplicationDbContext _dbContext;
+
+        public PassengerRepository(ApplicationDbContext adbc)
         {
-            _pm = new PersonMapper();
-            _passengers = _pm.GetPersons();
+            _dbContext = adbc;
+            _passengers = adbc.Passengers;
+            _drivers = adbc.Drivers;
+            
         }
 
         public void Add(Passenger passenger)
