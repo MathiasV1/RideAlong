@@ -38,11 +38,6 @@ namespace RideAlong.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public IEnumerable<Passenger> GetAllInRange(float maxDetour)
-        {
-            throw new NotImplementedException();
-        }
-
         public void SaveChanges()
         {
             throw new NotImplementedException();

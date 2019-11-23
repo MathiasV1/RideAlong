@@ -8,7 +8,6 @@ namespace RideAlong.Models.Domain
     interface IPassengerRepository
     {
         Passenger GetBy(int passengerId);
-        IEnumerable<Passenger> GetAllInRange(float maxDetour);
         IEnumerable<Passenger> GetAll();
         void Add(Passenger passenger);
         void Delete(Passenger passenger);
