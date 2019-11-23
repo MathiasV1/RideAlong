@@ -1,51 +1,41 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RideAlong.Models.Domain;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
-namespace RideAlong.Data.Repositories
-{
-    public class PassengerRepository: IPassengerRepository
-    {
-
-        private readonly DbSet<Driver> _drivers;
-        private readonly DbSet<Passenger> _passengers;
+namespace RideAlong.Data.Repositories {
+    public class PassengerRepository : IPassengerRepository {
         private readonly ApplicationDbContext _dbContext;
+        private readonly DbSet<Passenger> _passengers;
 
-        public PassengerRepository(ApplicationDbContext adbc)
-        {
-            _dbContext = adbc;
-            _passengers = adbc.Passengers;
-            _drivers = adbc.Drivers;
-            
+        public PassengerRepository(ApplicationDbContext dbContext) {
+            _dbContext = dbContext;
+            _passengers = dbContext.Passengers;
         }
 
-        public void Add(Passenger passenger)
-        {
-            throw new NotImplementedException();
+        public void Add(Passenger passenger) {
+            _passengers.Add(passenger);
         }
 
-        public void Delete(Passenger passenger)
-        {
-            throw new NotImplementedException();
+        public void Delete(Passenger passenger) {
+            _passengers.Remove(passenger);
         }
 
-        public IEnumerable<Passenger> GetAll()
-        {
-            throw new NotImplementedException();
+        public IEnumerable<Passenger> GetAll() {
+            return _passengers;
         }
 
-        public Passenger GetBy(int passengerId)
-        {
-            throw new NotImplementedException();
+        public List<Passenger> getAllInRange(Location startLocDriver, float maxDetour) {
+            return _passengers.Where(b => b.StartLocation.getLocValue() < startLocDriver.getLocValue() + maxDetour).ToList();
         }
 
-        public void SaveChanges()
-        {
-            throw new NotImplementedException();
+        public Passenger GetBy(int passengerId) {
+            return _passengers.Include(b => b).SingleOrDefault(b => b.ID == passengerId);
+        }
+
+        public void SaveChanges() {
+            _dbContext.SaveChanges();
         }
     }
 }

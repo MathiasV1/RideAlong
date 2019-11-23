@@ -12,6 +12,7 @@ namespace RideAlong.Models.Domain
         private string _telefoonnummer;
         private Location _startlocation;
         private Location _endlocation;
+        private int _id;
 
         public string Voornaam
         {
@@ -74,6 +75,17 @@ namespace RideAlong.Models.Domain
                 if (value != null)
                 {
                     _endlocation = value;
+                }
+            }
+        }
+
+        public int ID {
+            get {
+                return _id;
+            }
+            set {
+                if (value != null && !value.Equals("")) {
+                    _id = value;
                 }
             }
         }

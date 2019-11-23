@@ -2,19 +2,23 @@
 using RideAlong.Data.Mappers;
 using RideAlong.Models.Domain;
 
-namespace RideAlong
-{
-    public class ApplicationDbContext : DbContext
-    {
+namespace RideAlong {
+    public class ApplicationDbContext : DbContext {
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Passenger> Passengers { get; set; }
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            var connectionString = @"Server=MSI\\MSSQLSERVER02;Database=DbRideAlong;Integrated Security=True;";
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
+        /*public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
+            
+        }*/
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) {
+
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfiguration(new DriverConfiguration());
             modelBuilder.ApplyConfiguration(new PassengerConfiguration());

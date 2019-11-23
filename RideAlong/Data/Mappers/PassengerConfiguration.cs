@@ -13,7 +13,7 @@ namespace RideAlong.Data.Mappers
         public void Configure(EntityTypeBuilder<Passenger> builder)
         {
             builder.ToTable("Passenger");
-            builder.HasKey("PassengerId");
+            builder.HasKey(p => p.ID);
             builder.Property(p => p.Naam).IsRequired();
             builder.Property(p => p.Voornaam).IsRequired();
             builder.Property(p => p.TelefoonNummer).IsRequired();

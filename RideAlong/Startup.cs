@@ -16,10 +16,9 @@ namespace RideAlong {
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddDbContext<ApplicationDbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+        public void ConfigureServices(IServiceCollection services) {
+            /*services.AddDbContext<ApplicationDbContext>(options =>
+            options.UseSqlServer("MSI\\MSSQLSERVER02"));*/
             services.AddControllersWithViews();
             services.AddScoped<IDriverRepository, DriverRepository>();
             services.AddScoped<IPassengerRepository, PassengerRepository>();
@@ -45,7 +44,7 @@ namespace RideAlong {
             app.UseEndpoints(endpoints => {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Active}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }

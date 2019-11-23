@@ -12,5 +12,6 @@ namespace RideAlong.Models.Domain
         void Add(Passenger passenger);
         void Delete(Passenger passenger);
         void SaveChanges();
+        List<Passenger> getAllInRange(Location startLocDriver, float maxDetour);
     }
 }
