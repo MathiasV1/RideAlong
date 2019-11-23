@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RideAlong.Models.Domain
 {
-    interface IPassengerRepository
+    public interface IPassengerRepository
     {
         Passenger GetBy(int passengerId);
         IEnumerable<Passenger> GetAll();

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RideAlong.Models.Domain
 {
-    interface IDriverRepository
+    public interface IDriverRepository
     {
         Driver GetBy(int driverId);
         IEnumerable<Driver> GetAll();
