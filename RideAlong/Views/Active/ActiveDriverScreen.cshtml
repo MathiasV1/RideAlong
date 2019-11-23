@@ -1,0 +1,12 @@
+﻿@model IEnumerable<RideAlong.Models.Domain.Passenger>;
+@{
+    ViewData["Title"] = "ActiveScreen";
+}
+
+<h1>ActiveScreen</h1>
+
+@foreach (var p in @Model) {
+    <p>@p.Naam</p>
+}
+<p>@ViewData["Driver"]</p>
+
