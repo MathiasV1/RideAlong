@@ -9,13 +9,13 @@ namespace RideAlong {
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            var connectionString = @"Server=MSI\\MSSQLSERVER02;Database=DbRideAlong;Integrated Security=True;";
+            var connectionString = @"Server=.;Database=DbRideAlong;Integrated Security=True;";
             optionsBuilder.UseSqlServer(connectionString);
         }
 
-        /*public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) {
             
-        }*/
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) {
 

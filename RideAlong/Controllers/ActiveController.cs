@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RideAlong.Models.Domain;
+using System;
 using System.Collections.Generic;
 
 namespace RideAlong.Controllers {
@@ -8,16 +9,18 @@ namespace RideAlong.Controllers {
         private readonly IPassengerRepository _passengerRepository;
 
         public ActiveController(IDriverRepository dr, IPassengerRepository pr) {
-            this._driverRepository = dr;
-            this._passengerRepository = pr;
+            _driverRepository = dr;
+            _passengerRepository = pr;
         }
 
         public IActionResult Index() {
             return View();
         }
 
-        public IActionResult ActiveDriverView(int driverID) {
-            Driver driver = _driverRepository.GetBy(driverID);
+        public IActionResult ActiveDriverView() {
+            Random r = new Random();
+            int index = r.Next(5);
+            Driver driver = _driverRepository.GetBy(index);
             ViewData["Driver"] = driver.Naam;
             List<Passenger> passengers = _passengerRepository.getAllInRange(driver.StartLocation, driver.MaxDetour);
             return View(passengers);

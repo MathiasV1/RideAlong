@@ -6,12 +6,12 @@ using System.Linq;
 
 namespace RideAlong.Data.Repositories {
     public class DriverRepository : IDriverRepository {
-        private readonly ApplicationDbContext _dbContext;
-        private readonly DbSet<Driver> _drivers;
+        private readonly DataInitializer _di;
+        private IList<Driver> _drivers;
 
-        public DriverRepository(ApplicationDbContext dbContext) {
-            _dbContext = dbContext;
-            _drivers = dbContext.Drivers;
+        public DriverRepository() {
+            _di = new DataInitializer();
+            _drivers = _di.Drivers;
         }
 
         public void Add(Driver driver) {
@@ -26,12 +26,9 @@ namespace RideAlong.Data.Repositories {
             return _drivers;
         }
 
-        public Driver GetBy(int driverId) {
-            return _drivers.Include(b => b).SingleOrDefault(b => b.ID == driverId);
-        }
-
-        public void SaveChanges() {
-            _dbContext.SaveChanges();
+        public Driver GetBy(int index)
+        {
+            return _drivers.ElementAt(index);
         }
     }
 }

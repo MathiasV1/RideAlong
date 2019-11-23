@@ -7,10 +7,10 @@ namespace RideAlong.Models.Domain
 {
     public interface IDriverRepository
     {
-        Driver GetBy(int driverId);
+        
         IEnumerable<Driver> GetAll();
         void Add(Driver driver);
         void Delete(Driver driver);
-        void SaveChanges();
+        Driver GetBy(int index);
     }
 }

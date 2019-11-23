@@ -7,11 +7,11 @@ namespace RideAlong.Models.Domain
 {
     public interface IPassengerRepository
     {
-        Passenger GetBy(int passengerId);
+        
         IEnumerable<Passenger> GetAll();
         void Add(Passenger passenger);
         void Delete(Passenger passenger);
-        void SaveChanges();
+        Passenger GetBy(int index);
         List<Passenger> getAllInRange(Location startLocDriver, float maxDetour);
     }
 }

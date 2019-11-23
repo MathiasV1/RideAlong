@@ -79,16 +79,7 @@ namespace RideAlong.Models.Domain
             }
         }
 
-        public int ID {
-            get {
-                return _id;
-            }
-            set {
-                if (value != null && !value.Equals("")) {
-                    _id = value;
-                }
-            }
-        }
+        
 
         public Person(string voornaam, string naam, string telefoonNummer)
         {
