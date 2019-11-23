@@ -10,7 +10,6 @@ namespace RideAlong.Data.Mappers {
             builder.Property(d => d.Voornaam).IsRequired();
             builder.Property(d => d.TelefoonNummer).IsRequired();
             builder.HasKey(d => d.ID);
-
         }
     }
 }
